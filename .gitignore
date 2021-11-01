@@ -4,6 +4,8 @@ venv
 # IDE
 .idea
 
+__pycache__
+
 /venv/
 /res/
 /app/temporary/
