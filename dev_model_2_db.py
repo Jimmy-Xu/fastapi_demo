@@ -8,7 +8,8 @@ from app.model import *
 
 if __name__ == '__main__':
     # 创建db连接
-    engine = create_engine(db_config.get_url(), echo=True)
+    #engine = create_engine(db_config.get_url(), echo=True)
+    engine = create_engine(db_config.get_url())
 
     # 创建db表
     Base.metadata.create_all(engine)
