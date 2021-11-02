@@ -89,81 +89,30 @@ engine = create_engine(r'D:\binance_app\data.db')
         )
 ```
 
-## modify dateType in fastapi_plug
-.\venv\Lib\site-packages\fastapi_plus\model\base.py
+## modify fastapi_plug
+
+- venv/Lib/site-packages/fastapi_plus/model/base.py
+- venv/Lib/site-packages/fastapi_plus/utils/db.py
+- venv/Lib/site-packages/fastapi_plus/utils/mongo.py
+
 ```
-from sqlalchemy.dialects.mysql import BIGINT, INTEGER, LONGTEXT, TINYINT
-to
-from sqlalchemy.dialects.sqlite import DECIMAL, INTEGER, TEXT, SMALLINT
-
-// change all BIGINT to DECIMAL
-// change all LONGTEXT to TEXT
-// change all TINYINT to SMALLINT
-```
-
-full
-```
-from sqlalchemy import Column, String, TIMESTAMP, text, DECIMAL, Date
-from sqlalchemy.dialects.sqlite import DECIMAL, INTEGER, TEXT, SMALLINT
-from sqlalchemy.ext.declarative import declarative_base
-
-DeclarativeBase = declarative_base()
-
-
-class Base(DeclarativeBase):
-    """
-    基础Model模型对象
-    """
-    __abstract__ = True
-
-    id = Column(DECIMAL(20), primary_key=True, comment='序号')
-    parent_id = Column(DECIMAL(20), nullable=False, server_default=text("0"), comment='父序号')
-    type = Column(INTEGER, nullable=False, server_default=text("0"), comment='类型')
-    sort = Column(INTEGER, nullable=False, server_default=text("0"), comment='排序')
-    status = Column(SMALLINT, nullable=False, server_default=text("0"), comment='状态')
-    is_deleted = Column(SMALLINT, nullable=False, server_default=text("0"), comment='软删')
-    created_by = Column(DECIMAL(20), nullable=False, server_default=text("0"), comment='创建人')
-    created_time = Column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP"), comment='创建时间')
-    updated_by = Column(DECIMAL(20), nullable=False, server_default=text("0"), comment='更新人')
-    updated_time = Column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP"), comment='更新时间')
-    code = Column(String(255), nullable=False, server_default=text("''"), comment='编码')
-    name = Column(String(255), nullable=False, server_default=text("''"), comment='名称')
-    label = Column(String(255), nullable=False, server_default=text("''"), comment='标签')
-    logo = Column(String(255), nullable=False, server_default=text("''"), comment='图标')
-    url = Column(String(255), nullable=False, server_default=text("''"), comment='URL')
-    info = Column(String(1000), nullable=False, server_default=text("''"), comment='内容')
-    remark = Column(String(1000), nullable=False, server_default=text("''"), comment='备注')
-    search = Column(TEXT, comment='搜索')
-
+cp -rf venv-fastapi_plus/* venv/Lib/site-packages/fastapi_plus/
 ```
 
 ## pymongo to tinymongo
-
-### modify MongoConfig in fastapi_plus
-> .\venv\Lib\site-packages\fastapi_plus\utils\mongo.py
-
-```
-#from pymongo import MongoClient
-#from pymongo.collection import Collection
-
-to
-
-from tinymongo import TinyMongoClient as MongoClient
-from tinymongo import TinyMongoCollection as Collection
-
-
-    def get_url(self):
-        print("mongo url={0}".format(self.database))
-        return self.database
-```
 
 
 ### FAQ
 
 [RecursionError: maximum recursion depth exceeded](https://github.com/schapman1974/tinymongo/issues/58)
 
+## generate db auto
+```
+$ python dev_model_2_db.py
+connection url=sqlite:///D:\binance_app\data.db
+```
 
-## generate db
+## generate db by manual
 
 ### user table
 

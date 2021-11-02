@@ -1,3 +1,4 @@
 # git+https://gitee.com/erlitech/fastapi_plus.git@main
 # git+https://github.com/zhenqiang-sun/fastapi_plus.git@main
 fastapi-plus==0.1.4.20201125
+tinymongo==0.2.0

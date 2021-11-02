@@ -26,19 +26,19 @@ class DbConfig(object):
         config = [
             self.driver,
             '://',
-            self.username,
-            ':',
-            self.password,
-            '@',
-            self.host,
-            ':',
-            self.port,
+            # self.username,
+            # ':',
+            # self.password,
+            # '@',
+            # self.host,
+            # ':',
+            # self.port,
             '/',
             self.database,
-            '?charset=',
-            self.charset,
+            # '?charset=',
+            # self.charset,
         ]
-
+        print("connection url={0}".format( ''.join(config)))
         return ''.join(config)
 
 
@@ -65,10 +65,10 @@ class DbUtils(object):
     def _create_scoped_session(config: DbConfig):
         engine = create_engine(
             config.get_url(),
-            pool_size=config.pool_size,
-            max_overflow=config.max_overflow,
-            pool_recycle=config.pool_recycle,
-            echo=config.echo
+            #pool_size=config.pool_size,
+            #max_overflow=config.max_overflow,
+            #pool_recycle=config.pool_recycle,
+            #echo=config.echo
         )
 
         session_factory = sessionmaker(autocommit=True, autoflush=False, bind=engine)

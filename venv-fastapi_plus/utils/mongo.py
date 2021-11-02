@@ -1,6 +1,8 @@
-from pymongo import MongoClient
-from pymongo.collection import Collection
+#from pymongo import MongoClient
+#from pymongo.collection import Collection
 
+from tinymongo import TinyMongoClient as MongoClient
+from tinymongo import TinyMongoCollection as Collection
 
 class MongoConfig(object):
     """
@@ -32,7 +34,9 @@ class MongoConfig(object):
             '&authMechanism=SCRAM-SHA-256',
         ]
 
-        return ''.join(config)
+        #return ''.join(config)
+        print("mongo url={0}".format(self.database))
+        return self.database
 
 
 class MongoUtils(object):

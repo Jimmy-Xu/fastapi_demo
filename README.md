@@ -9,7 +9,7 @@ https://gitee.com/erlitech/fastapi_demo/
 ## 环境组件
 
 ### 版本：
-Python 3.8
+Python 3.9.6
 
 ### 组件：
 - FastAPI Plus: https://github.com/zhenqiang-sun/fastapi_plus/  https://gitee.com/erlitech/fastapi_plus/
@@ -55,11 +55,11 @@ Python 3.8
 ## 开发运行
 
 ```bash
+# 安装virtualenv
+sudo pip install -i https://mirrors.aliyun.com/pypi/simple/ virtualenv
+
 # 初始化venv：
 virtualenv venv
-
-# 如提示找不到virtualenv，则先执行：
-sudo pip install -i https://mirrors.aliyun.com/pypi/simple/ virtualenv
 
 # 进入venv for Linux、Mac：
 source venv/bin/activate
