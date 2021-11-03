@@ -69,6 +69,8 @@ venv\Scripts\activate.bat
 
 # 安装依赖环境：
 pip install -i https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt
+pip uninstall tinymongo
+pip install git+https://github.com/cjboyle/tinymongo
 
 # 开发运行
 python dev_run.py

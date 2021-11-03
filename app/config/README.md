@@ -106,6 +106,11 @@ cp -rf venv-fastapi_plus/* venv/Lib/site-packages/fastapi_plus/
 
 [RecursionError: maximum recursion depth exceeded](https://github.com/schapman1974/tinymongo/issues/58)
 
+```
+pip uninstall tinymongo
+pip install git+https://github.com/cjboyle/tinymongo
+```
+
 ## generate db auto
 ```
 $ python dev_model_2_db.py
